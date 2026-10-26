@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ScheduleAPI.Domain/ScheduleAPI.Domain.csproj" />
+  <Project Path="ScheduleAPI.Test/ScheduleAPI.Test.csproj" />
+  <Project Path="ScheduleAPI/ScheduleAPI.csproj" />
+</Solution>
