@@ -1,5 +1,7 @@
 <Solution>
+  <Project Path="ScheduleAPI.Application/ScheduleAPI.Application.csproj" Id="bf18f205-c646-49f9-ac44-b42142dd3021" />
   <Project Path="ScheduleAPI.Domain/ScheduleAPI.Domain.csproj" />
+  <Project Path="ScheduleAPI.Infrastructure/ScheduleAPI.Infrastructure.csproj" Id="8b36131c-f237-4143-8dac-e62942e1f243" />
   <Project Path="ScheduleAPI.Test/ScheduleAPI.Test.csproj" />
   <Project Path="ScheduleAPI/ScheduleAPI.csproj" />
 </Solution>

@@ -12,7 +12,6 @@ namespace ScheduleAPI.Test
             // act && assert
             Assert.Throws<ArgumentException>(() => new Usuario
             (
-                 Guid.NewGuid(),
                 "Felipe",
                 "123456789",
                 new Email("felipeteste.com"), // E-mail inválido
