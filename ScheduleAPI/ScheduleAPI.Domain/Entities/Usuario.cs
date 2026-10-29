@@ -1,4 +1,5 @@
-﻿using ScheduleAPI.Domain.ValueObjects;
+﻿using ScheduleAPI.Domain.Exceptions;
+using ScheduleAPI.Domain.ValueObjects;
 
 namespace ScheduleAPI.Domain.Entities
 {
@@ -16,10 +17,10 @@ namespace ScheduleAPI.Domain.Entities
         public Usuario(string nome, string telefone, Email email, CPF cpf)
         {
             Id = Guid.NewGuid();
-            Nome = string.IsNullOrWhiteSpace(nome) ? throw new ArgumentException("Nome é obrigatório.", nameof(nome)) : nome.Trim();
-            Telefone = string.IsNullOrWhiteSpace(telefone) ? throw new ArgumentException("Telefone é obrigatório.", nameof(telefone)) : telefone;
-            Email = email ?? throw new ArgumentNullException(nameof(email));
-            CPF = cpf ?? throw new ArgumentNullException(nameof(cpf));
+            Nome = string.IsNullOrWhiteSpace(nome) ? throw new DomainException("Nome é obrigatório.") : nome.Trim();
+            Telefone = string.IsNullOrWhiteSpace(telefone) ? throw new DomainException("Telefone é obrigatório.") : telefone;
+            Email = email ?? throw new DomainException("Email é obrigatório.");
+            CPF = cpf ?? throw new DomainException("CPF é obrigatório.");
         }
     }
 }

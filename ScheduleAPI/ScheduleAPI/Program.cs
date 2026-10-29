@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ScheduleAPI.Application.Repositories;
 using ScheduleAPI.Application.UseCases;
+using ScheduleAPI.Handlers;
 using ScheduleAPI.Infrastructure.Persistence;
 using ScheduleAPI.Infrastructure.Persistence.Repositories;
 
@@ -18,7 +19,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddExceptionHandler<DomainExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

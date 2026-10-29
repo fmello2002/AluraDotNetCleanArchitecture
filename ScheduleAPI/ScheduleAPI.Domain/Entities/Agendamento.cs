@@ -1,4 +1,6 @@
-﻿namespace ScheduleAPI.Domain.Entities
+﻿using ScheduleAPI.Domain.Exceptions;
+
+namespace ScheduleAPI.Domain.Entities
 {
     public class Agendamento
     {
@@ -16,10 +18,10 @@
         public Agendamento(DateTime horario, string observacao, Guid usuarioId)
         {
             if (horario <= DateTime.Now)
-                throw new ArgumentException("O horário do agendamento deve ser no futuro.", nameof(horario));
+                throw new DomainException($"O horário do agendamento deve ser no futuro.");
 
             if (usuarioId == Guid.Empty)
-                throw new ArgumentException("Usuário é obrigatório.", nameof(usuarioId));
+                throw new DomainException($"Usuário é obrigatório.");
 
             Id = Guid.NewGuid();
             Horario = horario;

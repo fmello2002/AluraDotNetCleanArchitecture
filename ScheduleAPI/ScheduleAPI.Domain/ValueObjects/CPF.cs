@@ -1,4 +1,6 @@
-﻿namespace ScheduleAPI.Domain.ValueObjects
+﻿using ScheduleAPI.Domain.Exceptions;
+
+namespace ScheduleAPI.Domain.ValueObjects
 {
     public record CPF
     {
@@ -7,7 +9,7 @@
         public CPF(string valor)
         {
             if (!ValidarCpf(valor))
-                throw new ArgumentException("O CPF informado é inválido.", nameof(valor));
+                throw new DomainException("O CPF informado é inválido.");
 
             Value = ApenasNumeros(valor);
         }

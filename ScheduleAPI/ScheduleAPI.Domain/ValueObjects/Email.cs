@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using ScheduleAPI.Domain.Exceptions;
+using System.Text.RegularExpressions;
 
 namespace ScheduleAPI.Domain.ValueObjects
 {
@@ -12,7 +13,7 @@ namespace ScheduleAPI.Domain.ValueObjects
         {
             if (string.IsNullOrWhiteSpace(value) || !EmailRegex.IsMatch(value))
             {
-                throw new ArgumentException("E-mail inválido.", nameof(value));
+                throw new DomainException("E-mail inválido.");
             }
 
             Value = value;
